@@ -1,33 +1,111 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background-color: #eee;
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
+.layout {
+  display: flex;
+  height: 100vh;
+  gap: 2rem;
+}
+
+.sidebar_wrapper {
+  position: relative;
+
+}
+
+.sidebar {
+  width: 17rem;
+  height: 100%;
+  background-color: #fff;
+  padding: 1rem;
+  transition: all 0.3s linear;
+}
+
+.sidebar_top {
+  width: max-content;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sidebar_logo {
+  width: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+}
+
+.sidebar_list {
+  list-style: none;
+
+}
+
+.sidebar_link {
+  display: inline-block;
+  font-size: 1rem;
+  text-decoration: none;
+  color: #000;
+  padding: 0.8rem 1rem;
+  display: flex;
+  background-color: #f3f4f6;
+  margin-bottom: 1rem;
+  border-radius: 0.8rem;
+}
+
+.sidebar_icon {
+  font-size: 1.2rem;
+  display: inline-block;
+}
+
+.sidebar_name {
+  margin-left: .5rem;
+}
+
+.sidebar_logo_name {
+  font-size: .6rem;
+  font-weight: 600;
+}
+
+.btn {
+  position: absolute;
+  right: 0;
+  top: 4rem;
+  border: none;
+  background-color: #fff;
+  width: 1.5rem;
+  height: 1.5rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transform: translateX(50%);
+  font-size: 1.1rem;
+}
+
+[data-collapse="true"] {
+  width: 5.3rem;
+}
+
+[data-collapse="true"] .sidebar_name,
+[data-collapse="true"] .sidebar_logo_name
+{
+  display: none;
+}
+[data-collapse="true"] .sidebar_logo{
+  width:63px;
+  height:20px;
+  transition:.5s;
+}
+[data-collapse="false"] .sidebar_logo{
+  transition:.5s;
+
 }
